@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private ViewCamera viewCameraPrefab;
     private GameplayWidget _gameplayWidget;
     private CharacterController _characterController;
+    private ViewCamera _viewCamera;
      
     private Animator _animator;
     private Vector2 _moveInput;
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         _gameplayWidget = Instantiate(gameplayWidgetPrefab);
         _gameplayWidget.MoveStick.OnInputUpdated += InputUpdated;
+        _viewCamera = Instantiate(viewCameraPrefab);
+        _viewCamera.SetFollowParent(transform);
     }
 
     private void InputUpdated(Vector2 inputVal)
