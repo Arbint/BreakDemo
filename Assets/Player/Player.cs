@@ -40,5 +40,6 @@ public class Player : MonoBehaviour
     {
         Vector3 moveDir = _viewCamera.InputToWorldDir(_moveInput);
         _characterController.Move( moveDir * (speed * Time.deltaTime));
+        _viewCamera.AddYawInput(_moveInput.x);
     }
 }

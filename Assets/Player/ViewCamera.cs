@@ -35,7 +35,7 @@ public class ViewCamera : MonoBehaviour
         _parentTransform = parentTransform;
     }
 
-    void AddYawInput(float amt)
+    public void AddYawInput(float amt)
     {
         transform.Rotate(Vector3.up, amt * Time.deltaTime * cameraTurnSpeed);
     }
