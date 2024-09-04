@@ -54,9 +54,8 @@ public class Player : MonoBehaviour
         if (aimDir == Vector3.zero)
         {
             aimDir = moveDir;
+            _viewCamera.AddYawInput(_moveInput.x);
         }
-        
-        _viewCamera.AddYawInput(_moveInput.x);
         
         if (aimDir != Vector3.zero)
         {
