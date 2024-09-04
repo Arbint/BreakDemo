@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _characterController.Move(new Vector3(_moveInput.x, 0f, _moveInput.y) * (speed * Time.deltaTime));
+        Vector3 moveDir = _viewCamera.InputToWorldDir(_moveInput);
+        _characterController.Move( moveDir * (speed * Time.deltaTime));
     }
 }
