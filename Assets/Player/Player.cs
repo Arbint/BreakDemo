@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SocketManager))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
@@ -43,12 +44,6 @@ public class Player : MonoBehaviour
     private void MoveInputUpdated(Vector2 inputVal)
     {
         _moveInput = inputVal;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
