@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public interface ISocketInterface
 {
     string GetSocketName();
@@ -18,7 +17,7 @@ public class AttachSocket : MonoBehaviour
 
     public void Attach(ISocketInterface socketInterface)
     {
-        socketInterface.GetGameObject().transform.parent = transform.parent;
+        socketInterface.GetGameObject().transform.parent = transform;
         socketInterface.GetGameObject().transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
     }
 }

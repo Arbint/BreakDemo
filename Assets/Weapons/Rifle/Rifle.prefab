@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachSocketName: Rifle
+  overrideController: {fileID: 22100000, guid: 30e6cfc1f58da2e4f9ef649c0ada7e8a, type: 2}
 --- !u!1001 &6641323172778519400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,16 +60,28 @@ PrefabInstance:
       value: CQAssaultRifle
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.064
+      value: -0.101
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.044
+      value: 0.076
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 7a741cf3d8ef07946a696aad38704d9c, type: 3}
       propertyPath: m_LocalRotation.w
