@@ -12,7 +12,7 @@ public class Rifle : Weapon
 
     public override void Attack()
     {
-        GameObject target = _aimingComponent.GetAimTarget();
+        GameObject target = _aimingComponent.GetAimTarget(Owner.transform);
         if(target)
             Debug.Log($"damaging {target.name}");
     }
