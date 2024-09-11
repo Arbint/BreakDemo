@@ -3,6 +3,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SocketManager))]
+[RequireComponent(typeof(InventoryComponent))]
+[RequireComponent(typeof(HealthComponent))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
@@ -14,41 +17,55 @@ public class Player : MonoBehaviour
     
     private CharacterController _characterController;
     private ViewCamera _viewCamera;
+    private InventoryComponent _inventoryComponent;
      
     private Animator _animator;
     private float _animTurnSpeed;
     private Vector2 _moveInput;
     private Vector2 _aimInput;
 
-    static int animFwdId = Animator.StringToHash("ForwardAmt");
-    static int animRightId = Animator.StringToHash("RightAmt");
-    static int animTurnId = Animator.StringToHash("TurnAmt");
+    private static readonly int animFwdId = Animator.StringToHash("ForwardAmt");
+    private static readonly int animRightId = Animator.StringToHash("RightAmt");
+    private static readonly int animTurnId = Animator.StringToHash("TurnAmt");
+    private static readonly int SwitchWeaponId = Animator.StringToHash("SwitchWeapon");
+    private static readonly int FireId = Animator.StringToHash("Firing");
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
+        _inventoryComponent = GetComponent<InventoryComponent>();
         _gameplayWidget = Instantiate(gameplayWidgetPrefab);
         _gameplayWidget.MoveStick.OnInputUpdated += MoveInputUpdated;
         _gameplayWidget.AimStick.OnInputUpdated += AimInputUpdated;
+        _gameplayWidget.AimStick.OnInputClicked += SwitchWeapon;
         _viewCamera = Instantiate(viewCameraPrefab);
         _viewCamera.SetFollowParent(transform);
     }
 
-    private void AimInputUpdated(Vector2 inputVal)
+    private void SwitchWeapon()
     {
+        _animator.SetTrigger(SwitchWeaponId);
+    }
+
+    public void AttackPoint()
+    {
+        _inventoryComponent.FireCurrentActiveWeapon();
+    }
+    public void WeaponSwitchPoint()
+    {
+        _inventoryComponent.EquipNextWeapon();  
+    }
+
+    private void AimInputUpdated(Vector2 inputVal)
+    { 
         _aimInput = inputVal;
+        _animator.SetBool(FireId, _aimInput != Vector2.zero); 
     }
 
     private void MoveInputUpdated(Vector2 inputVal)
     {
         _moveInput = inputVal;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
