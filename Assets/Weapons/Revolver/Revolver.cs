@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AimingComponent))]
 public class Revolver : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private AimingComponent _aimingComponent;
+
+    private void Awake()
     {
-        
+        _aimingComponent = GetComponent<AimingComponent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Attack()
     {
-        
+        GameObject target = _aimingComponent.GetAimTarget();
+        if(target)
+            Debug.Log($"damaging {target.name}");
     }
 }

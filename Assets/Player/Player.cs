@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private static readonly int animRightId = Animator.StringToHash("RightAmt");
     private static readonly int animTurnId = Animator.StringToHash("TurnAmt");
     private static readonly int SwitchWeaponId = Animator.StringToHash("SwitchWeapon");
+    private static readonly int FireId = Animator.StringToHash("Firing");
 
     private void Awake()
     {
@@ -46,14 +47,19 @@ public class Player : MonoBehaviour
         _animator.SetTrigger(SwitchWeaponId);
     }
 
+    public void AttackPoint()
+    {
+        _inventoryComponent.FireCurrentActiveWeapon();
+    }
     public void WeaponSwitchPoint()
     {
         _inventoryComponent.EquipNextWeapon();  
     }
 
     private void AimInputUpdated(Vector2 inputVal)
-    {
+    { 
         _aimInput = inputVal;
+        _animator.SetBool(FireId, _aimInput != Vector2.zero); 
     }
 
     private void MoveInputUpdated(Vector2 inputVal)
