@@ -18,6 +18,7 @@ public class Rifle : Weapon
         {
             HealthComponent targetHealthComponent = target.GetComponent<HealthComponent>();
             targetHealthComponent?.ChangeHealth(-damage);
+            
         }
     }
 }
