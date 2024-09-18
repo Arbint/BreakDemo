@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameplayWidget : MonoBehaviour
+public class GameplayWidget : Widget
 {
     [SerializeField] private JoyStick moveStick;
     [SerializeField] private JoyStick aimStick;
@@ -17,16 +17,4 @@ public class GameplayWidget : MonoBehaviour
         private set => aimStick = value;
     }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
