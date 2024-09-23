@@ -28,7 +28,9 @@ public abstract class Weapon : MonoBehaviour, ISocketInterface
         if(ownerAnimator && overrideController)
         {
             ownerAnimator.runtimeAnimatorController = overrideController;
+            ownerAnimator.SetFloat("AttackAnimMult", attackAnimSpeedMult);
         }
+        
     }
 
     public void UnEquip()
