@@ -5,6 +5,7 @@ public class RangedWeapon : Weapon
 {
     [SerializeField] private float damage = 5;
     [SerializeField] private ParticleSystem bulletVFX;
+    
     private AimingComponent _aimingComponent;
 
     private void Awake()
@@ -14,7 +15,7 @@ public class RangedWeapon : Weapon
 
     public override void Attack()
     {
-        AimResult aimResult = _aimingComponent.GetAimResult(Owner.transform);
+        AimResult aimResult = _aimingComponent.GetAimResult();
         if (aimResult.target)
         {
             HealthComponent targetHealthComponent = aimResult.target.GetComponent<HealthComponent>();

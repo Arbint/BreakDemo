@@ -4,6 +4,7 @@ public abstract class Weapon : MonoBehaviour, ISocketInterface
 {
     [SerializeField] string attachSocketName;
     [SerializeField] AnimatorOverrideController overrideController;
+    [SerializeField] private float attackAnimSpeedMult = 1f;
     public GameObject Owner
     {
         get;
