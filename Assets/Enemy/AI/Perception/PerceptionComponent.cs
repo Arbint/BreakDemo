@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class PerceptionComponent : MonoBehaviour
 {
+    public delegate void OnPerceptionTargetUpdatedDeletage(GameObject target, bool bIsSensed);
+    public event OnPerceptionTargetUpdatedDeletage OnPerceptionTargetUpdated;
+    
     private LinkedList<Stimuli> _currentSensedStimuliList = new LinkedList<Stimuli>();
     private Stimuli _currentTargetStimuli;
+    
+    
+    
     private void Awake()
     {
         Sense[] senses = GetComponents<Sense>();
@@ -45,7 +51,7 @@ public class PerceptionComponent : MonoBehaviour
         {
             if (_currentTargetStimuli != null)
             {
-                Debug.Log($"I don't have any target anymore");
+                OnPerceptionTargetUpdated?.Invoke(_currentTargetStimuli.gameObject, false);
                 _currentTargetStimuli = null;
             }
         }
@@ -54,8 +60,8 @@ public class PerceptionComponent : MonoBehaviour
             Stimuli earliestStimuli = _currentSensedStimuliList.First.Value;
             if (earliestStimuli != _currentTargetStimuli && earliestStimuli)
             {
-                Debug.Log($"Target changed to {_currentTargetStimuli}");
                 _currentTargetStimuli = earliestStimuli;
+                OnPerceptionTargetUpdated?.Invoke(_currentTargetStimuli.gameObject, true);
             }
         }
     }
