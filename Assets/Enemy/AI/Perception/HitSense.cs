@@ -18,9 +18,4 @@ public class HitSense : Sense
         if(instigatorStimuli)
             HandleSensibleStimuli(instigatorStimuli); 
     }
-
-    protected override bool IsStimuliSensible(Stimuli stimuli)
-    {
-        return false;
-    }
 }
