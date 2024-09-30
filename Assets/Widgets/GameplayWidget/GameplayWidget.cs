@@ -16,5 +16,14 @@ public class GameplayWidget : Widget
         get => aimStick;
         private set => aimStick = value;
     }
-    
+
+    public override void SetOwner(GameObject newOwner)
+    {
+        base.SetOwner(newOwner);
+        Widget[] allWidgets = GetComponentsInChildren<Widget>();
+        foreach (Widget childWidget in allWidgets)
+        {
+            childWidget.SetOwner(newOwner);
+        }
+    }
 }

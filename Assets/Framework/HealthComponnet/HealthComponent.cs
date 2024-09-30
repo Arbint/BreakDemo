@@ -10,6 +10,16 @@ public class HealthComponent : MonoBehaviour
     
    [SerializeField] private float maxHealth = 100;
    private float _health;
+
+   public float GetHealth()
+   {
+       return _health;
+   }
+
+   public float GetMaxHealth()
+   {
+       return maxHealth;
+   }
    
    private void Awake()
    {

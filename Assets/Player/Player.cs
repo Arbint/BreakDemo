@@ -45,6 +45,7 @@ public class Player : MonoBehaviour, ITeamInterface
         _gameplayWidget.MoveStick.OnInputUpdated += MoveInputUpdated;
         _gameplayWidget.AimStick.OnInputUpdated += AimInputUpdated;
         _gameplayWidget.AimStick.OnInputClicked += SwitchWeapon;
+        _gameplayWidget.SetOwner(gameObject);
         _viewCamera = Instantiate(viewCameraPrefab);
         _viewCamera.SetFollowParent(transform);
     }
