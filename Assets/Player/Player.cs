@@ -6,13 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(SocketManager))]
 [RequireComponent(typeof(InventoryComponent))]
 [RequireComponent(typeof(HealthComponent))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITeamInterface
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float bodyTurnSpeed = 10f;
     [SerializeField] private ViewCamera viewCameraPrefab;
     [SerializeField] private float animTurnLerpScale = 5f;
+    [SerializeField] private int teamID = 0;
     private GameplayWidget _gameplayWidget;
     
     private CharacterController _characterController;
@@ -29,6 +30,11 @@ public class Player : MonoBehaviour
     private static readonly int animTurnId = Animator.StringToHash("TurnAmt");
     private static readonly int SwitchWeaponId = Animator.StringToHash("SwitchWeapon");
     private static readonly int FireId = Animator.StringToHash("Firing");
+
+    public int GetTeamID()
+    {
+        return teamID;
+    }
 
     private void Awake()
     {

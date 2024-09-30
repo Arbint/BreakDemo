@@ -4,14 +4,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(Animator))]
-public class Enemy : MonoBehaviour, IBehaviorInterface
+public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface
 {
+    [SerializeField] private int TeamID = 1;
     private HealthComponent _healthComponent;
     private Animator _animator;
     private static readonly int DeadId = Animator.StringToHash("Dead");
     
     private PerceptionComponent _perceptionComponent;
     private BehaviorGraphAgent _behaviorGraphAgent;
+
+    public int GetTeamID()
+    {
+        return TeamID;
+    }
+
     private void Awake()
     {
         _healthComponent = GetComponent<HealthComponent>();
@@ -33,6 +40,7 @@ public class Enemy : MonoBehaviour, IBehaviorInterface
         {
             _behaviorGraphAgent.BlackboardReference.SetVariableValue<GameObject>("Target", null);
             _behaviorGraphAgent.BlackboardReference.SetVariableValue("checkoutLocation", target.transform.position);
+            _behaviorGraphAgent.BlackboardReference.SetVariableValue("hasCheckLocation", true);
         }
     }
 
