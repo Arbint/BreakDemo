@@ -6,7 +6,7 @@ using UnityEngine;
 public class BoxTriggerDamageComponent : DamageComponent
 {
     [SerializeField] private float damage = 10;
-    private HashSet<GameObject> _currentOverlappingTargets;
+    private HashSet<GameObject> _currentOverlappingTargets = new HashSet<GameObject>();
     
     public override void DoDamage()
     {
