@@ -9,8 +9,6 @@ public class PerceptionComponent : MonoBehaviour
     private LinkedList<Stimuli> _currentSensedStimuliList = new LinkedList<Stimuli>();
     private Stimuli _currentTargetStimuli;
     
-    
-    
     private void Awake()
     {
         Sense[] senses = GetComponents<Sense>();

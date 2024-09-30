@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(Animator))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IBehaviorInterface
 {
     private HealthComponent _healthComponent;
     private Animator _animator;
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         else
         {
             _behaviorGraphAgent.BlackboardReference.SetVariableValue<GameObject>("Target", null);
+            _behaviorGraphAgent.BlackboardReference.SetVariableValue("checkoutLocation", target.transform.position);
         }
     }
 
@@ -47,5 +48,10 @@ public class Enemy : MonoBehaviour
     private void TookDamage(float newHealth, float delta, float maxHealth, GameObject instigator)
     {
         Debug.Log($"I took {delta} amt of damage, health is now {newHealth}/{maxHealth}");
+    }
+
+    public void Attack(GameObject target)
+    {
+        _animator.SetTrigger("Attack");
     }
 }
