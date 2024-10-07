@@ -17,9 +17,9 @@ public class PlayerHealthBar : Widget
         }
     }
 
-    private void UpdateHealth(float newhealth, float delta, float maxhealth, GameObject instigator)
+    private void UpdateHealth(float newHealth, float delta, float maxHealth, GameObject instigator)
     {
-        healthBarImage.fillAmount = newhealth / maxhealth;
-        valueText.text = $"{newhealth}/{maxhealth}";
+        healthBarImage.fillAmount = newHealth / maxHealth;
+        valueText.text = $"{newHealth}/{maxHealth}";
     }
 }

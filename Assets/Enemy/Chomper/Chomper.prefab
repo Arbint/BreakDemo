@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 6039066497351890653}
   - component: {fileID: 9051311788994882558}
   - component: {fileID: -6463752929591751035}
+  - component: {fileID: 5343613806957346627}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -301,6 +302,22 @@ MonoBehaviour:
   bAttackEnemy: 1
   bAttackNeutral: 0
   damage: 10
+--- !u!114 &5343613806957346627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002617223673246343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b738719758116364dab0ead811c304bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 2567029881452204557}
+  damagedColor: {r: 1, g: 0, b: 0, a: 0}
+  damageColorDuration: 0.1
+  damageColorMaterialParmName: _EmissionOffset
 --- !u!1 &8910188923000649924
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,5 +409,10 @@ PrefabInstance:
 --- !u!4 &2567029881440469807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
+  m_PrefabInstance: {fileID: 2567029881440606637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2567029881452204557 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
   m_PrefabInstance: {fileID: 2567029881440606637}
   m_PrefabAsset: {fileID: 0}
