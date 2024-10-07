@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI; 
 
 public class PlayerHealthBar : Widget
 {
     [SerializeField] private Image healthBarImage;
+    [SerializeField] private TextMeshProUGUI valueText;
     public override void SetOwner(GameObject newOwner)
     {
         base.SetOwner(newOwner);
@@ -18,5 +20,6 @@ public class PlayerHealthBar : Widget
     private void UpdateHealth(float newhealth, float delta, float maxhealth, GameObject instigator)
     {
         healthBarImage.fillAmount = newhealth / maxhealth;
+        valueText.text = $"{newhealth}/{maxhealth}";
     }
 }
