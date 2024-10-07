@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DamageVisualizer : MonoBehaviour
@@ -8,7 +9,8 @@ public class DamageVisualizer : MonoBehaviour
     [SerializeField] float damageColorDuration = 0.2f;
     [SerializeField] string damageColorMaterialParmName = "_EmissionOffset";
     Color origColor;
-    private void Awake()
+    CameraShaker _cameraShaker;
+    private void Start()
     {
         HealthComponent healthComponet = GetComponent<HealthComponent>();
         if (healthComponet)
@@ -16,6 +18,12 @@ public class DamageVisualizer : MonoBehaviour
             healthComponet.OnTakenDamage += TookDamage;
         }
         origColor = meshRenderer.material.GetColor(damageColorMaterialParmName);
+
+        ICameraInterface cameraInterface = GetComponent<ICameraInterface>();
+        if (cameraInterface != null)
+        {
+            _cameraShaker = cameraInterface.GetCamera().AddComponent<CameraShaker>();
+        }
     }
 
     private void TookDamage(float newHealth, float delta, float maxHealth, GameObject instigator)
@@ -24,6 +32,11 @@ public class DamageVisualizer : MonoBehaviour
         {
             meshRenderer.material.SetColor(damageColorMaterialParmName, damagedColor);
             Invoke("ResetColor", damageColorDuration);
+        }
+
+        if(_cameraShaker)
+        {
+            _cameraShaker.StartShake();
         }
     }
 

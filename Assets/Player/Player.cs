@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SocketManager))]
 [RequireComponent(typeof(InventoryComponent))]
 [RequireComponent(typeof(HealthComponent))]
-public class Player : MonoBehaviour, ITeamInterface
+public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
     [SerializeField] private float speed = 10f;
@@ -105,5 +105,10 @@ public class Player : MonoBehaviour, ITeamInterface
 
         _animator.SetFloat(animFwdId, animFwdAmt);
         _animator.SetFloat(animRightId, animRightAmt);
+    }
+
+    public Camera GetCamera()
+    {
+        return _viewCamera.GetViewCamera();
     }
 }
