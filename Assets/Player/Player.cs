@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
     private CharacterController _characterController;
     private ViewCamera _viewCamera;
     private InventoryComponent _inventoryComponent;
+    private HealthComponent _healthComponent;
      
     private Animator _animator;
     private float _animTurnSpeed;
@@ -48,6 +49,15 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
         _gameplayWidget.SetOwner(gameObject);
         _viewCamera = Instantiate(viewCameraPrefab);
         _viewCamera.SetFollowParent(transform);
+        _healthComponent = GetComponent<HealthComponent>();
+        _healthComponent.OnDead += StartDeathSequence;
+    }
+
+    private void StartDeathSequence()
+    {
+        Debug.Log($"player dead");
+        _animator.SetTrigger("Dead");
+        _gameplayWidget.SetGameplayControlEnabled(false);
     }
 
     private void SwitchWeapon()
