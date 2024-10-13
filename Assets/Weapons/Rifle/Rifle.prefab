@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachSocketName: Rifle
   overrideController: {fileID: 22100000, guid: 30e6cfc1f58da2e4f9ef649c0ada7e8a, type: 2}
-  attackAnimSpeedMult: 1.5
+  attackAnimSpeedMult: 2.5
   damage: 5
   bulletVFX: {fileID: 4674674522793728775}
 --- !u!114 &6397932618567638695
@@ -103,7 +103,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   bOverrideLocation: 1
   bFlattenAim: 1
-  heightOverride: 1.5
+  heightOverride: 1.2
   fwdOffset: 0.5
 --- !u!1001 &6641323172778519400
 PrefabInstance:

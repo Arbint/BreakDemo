@@ -65,7 +65,7 @@ public abstract class Sense : MonoBehaviour
         OnSenseUpdated?.Invoke(stimuli, false);
     }
 
-    protected void HandleSensibleStimuli(Stimuli stimuli)
+    public void HandleSensibleStimuli(Stimuli stimuli)
     {
         // we can sense it now, but we also can sense it before, nothing needs to be done
         if (_currentSensibleStimuliSet.Contains(stimuli))
