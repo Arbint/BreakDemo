@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour, ITeamInterface
     [SerializeField] float projectileThrowHeight = 3f;
     [SerializeField] float projctileBlowDamageRange = 4f;
     [SerializeField] float damage = 20f;
+    [SerializeField] ParticleSystem blowUpVFX;
 
     public int TeamId
     {
@@ -81,6 +82,9 @@ public class Projectile : MonoBehaviour, ITeamInterface
 
             healthComp.ChangeHealth(-damage, Instigator);
         }
+
+        if(blowUpVFX)
+            Instantiate(blowUpVFX, transform.position, transform.rotation);
 
         Destroy(gameObject);
     }
