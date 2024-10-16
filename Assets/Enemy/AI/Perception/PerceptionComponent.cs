@@ -85,4 +85,23 @@ public class PerceptionComponent : MonoBehaviour
             Gizmos.DrawLine(transform.position + Vector3.up, stimuliLoc + Vector3.up);
         }
     }
+
+    public GameObject GetCurrentTarget()
+    {
+        if (_currentTargetStimuli)
+        {
+            return _currentTargetStimuli.gameObject;
+        }
+
+        return null;
+    }
+
+    public void AssignPerceivedStimuli(Stimuli stimuli)
+    {
+        Sense sense = GetComponent<Sense>();
+        if (sense)
+        {
+            sense.HandleSensibleStimuli(stimuli);
+        }
+    }
 }

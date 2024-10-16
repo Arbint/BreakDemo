@@ -1,10 +1,11 @@
 using System;
 using Unity.Behavior;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(Animator))]
-public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface
+public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface, ISpawnInterface
 {
     [SerializeField] private int TeamID = 1;
     private HealthComponent _healthComponent;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface
         return TeamID;
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _healthComponent = GetComponent<HealthComponent>();
         _healthComponent.OnTakenDamage += TookDamage;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface
 
     private void HandleTargetUpdate(GameObject target, bool bIsSensed)
     {
+        Debug.Log($"perception update with {target} and bIsSensed: {bIsSensed}");
         if (bIsSensed)
         {
             _behaviorGraphAgent.BlackboardReference.SetVariableValue("Target", target);
@@ -56,15 +58,39 @@ public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface
 
     public void DeathAnimationFinished()
     {
-       Destroy(gameObject); 
+        OnDead(); 
+        Destroy(gameObject); 
     }
+
+    protected virtual void OnDead()
+    {
+       //override in child class 
+    }
+    
     private void TookDamage(float newHealth, float delta, float maxHealth, GameObject instigator)
     {
         Debug.Log($"I took {delta} amt of damage, health is now {newHealth}/{maxHealth}");
     }
 
-    public void Attack(GameObject target)
+    public virtual void Attack(GameObject target)
     {
         _animator.SetTrigger("Attack");
+    }
+
+    public void SpawnedBy(GameObject spanwingObject)
+    {
+        PerceptionComponent spawnerPerceptionComponent = spanwingObject.GetComponent<PerceptionComponent>();
+        if (!spawnerPerceptionComponent)
+            return;
+        
+        GameObject spawnerTarget = spawnerPerceptionComponent.GetCurrentTarget();
+        if (!spawnerTarget)
+            return;
+
+        Stimuli stimuli = spawnerTarget.GetComponent<Stimuli>();
+        if (!stimuli)
+            return;
+
+        _perceptionComponent.AssignPerceivedStimuli(stimuli);
     }
 }
