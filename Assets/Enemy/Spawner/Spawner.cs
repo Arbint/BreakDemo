@@ -24,7 +24,7 @@ public class Spawner : Enemy
    {
       foreach (var particleSystemSpec in _particleSystemSpec)
       {
-         ParticleSystem newVFX = Instantiate(particleSystemSpec.particleSystem, transform.position, Quaternion.identity);
+         ParticleSystem newVFX = Instantiate(particleSystemSpec.particleSystem, transform.position, particleSystemSpec.particleSystem.transform.rotation);
          newVFX.transform.localScale = Vector3.one * particleSystemSpec.size;
       }
    }
