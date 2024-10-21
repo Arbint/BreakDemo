@@ -92,6 +92,10 @@ MonoBehaviour:
   rootPanel: {fileID: 5705600122995284601}
   iconImage: {fileID: 3777322246485663990}
   cooldownImage: {fileID: 9088074955465709746}
+  cooldownUpdateInterval: 0.05
+  scaledSize: 1.5
+  scaledOffset: 100
+  scaleRate: 20
 --- !u!1 &3691750414414574037
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityWidgetPrefab: {fileID: -2263095904204679110, guid: 330dee0e5f0631048be6da4bf02f125e, type: 3}
   rootPanel: {fileID: 4518934720906570330}
+  scaleRange: 200
 --- !u!1 &6965298644859992514
 GameObject:
   m_ObjectHideFlags: 0
