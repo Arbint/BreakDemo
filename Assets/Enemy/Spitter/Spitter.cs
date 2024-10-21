@@ -6,7 +6,6 @@ public class Spitter : Enemy
     [SerializeField] Transform launchTransform;
     public void Shoot()
     {
-       Debug.Log($"Attacking {Target.gameObject.name}"); 
         if(Target)
         {
             Projectile newProjectile = Instantiate(projectilePrefab, launchTransform.position, launchTransform.rotation);
