@@ -4,11 +4,12 @@ using UnityEngine;
 
 public abstract class Ability : ScriptableObject
 {
+    public delegate void OnAbilityCooldownStaredDelegate(float cooldownDuration);
     [SerializeField] float cooldownDuration = 3f;
     [SerializeField] float manaCost = 10f;
     [SerializeField] Sprite abilityIcon;
 
-
+    public event OnAbilityCooldownStaredDelegate OnAbilityCooldownStared;
     bool _bIsOnCooldown;
 
     protected AbilitySystemComponent OwnerASC
@@ -30,6 +31,7 @@ public abstract class Ability : ScriptableObject
     }
     private void StartCooldown()
     {
+        OnAbilityCooldownStared?.Invoke(cooldownDuration); 
         OwnerASC.StartCoroutine(CooldownCoroutine()); 
     }
 
