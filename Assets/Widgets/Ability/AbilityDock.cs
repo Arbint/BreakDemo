@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using System;
 
 public class AbilityDock : Widget, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] AbilityWidget abilityWidgetPrefab;
     [SerializeField] RectTransform rootPanel;
     [SerializeField] float scaleRange = 150f;
+    
+    [SerializeField] float scaledSize = 1.5f;
+    [SerializeField] float scaleRate = 20f;
+
+    Vector3 _goalScale = Vector3.one;
 
     List<AbilityWidget> _abiltyWidgets = new List<AbilityWidget>();
 
@@ -19,11 +23,15 @@ public class AbilityDock : Widget, IPointerDownHandler, IPointerUpHandler
         if(_touchData != null)
         {
             ArrayScale();
+            _goalScale = Vector3.one * scaledSize;
         }
         else
         {
             ResetScale();
+            _goalScale = Vector3.one;
         }
+        
+        rootPanel.transform.localScale = Vector3.Lerp(rootPanel.transform.localScale, _goalScale, scaleRate * Time.deltaTime);
     }
 
     private void ResetScale()
