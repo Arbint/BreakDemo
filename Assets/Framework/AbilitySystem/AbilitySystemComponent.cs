@@ -37,6 +37,8 @@ public class AbilitySystemComponent : MonoBehaviour
         {
             GiveAbility(ability); 
         }
+
+        onManaUpdated?.Invoke(_mana, 0, maxMana);
     }
 
     public void GiveAbility(Ability newAbility)

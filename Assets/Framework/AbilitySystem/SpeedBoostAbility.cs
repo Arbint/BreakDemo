@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abiliy/Speed Boost")]
+[CreateAssetMenu(menuName = "Ability/Speed Boost")]
 public class SpeedBoostAbility : Ability
 {
     [SerializeField] float boostAmt = 20f;
