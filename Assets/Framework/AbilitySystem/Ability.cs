@@ -23,7 +23,23 @@ public abstract class Ability : ScriptableObject
         return abilityIcon;
     }
 
-    public abstract void ActivateAbility();
+    public bool TryActivateAbility()
+    {
+        if(!CanCast())
+        {
+            return false;
+        }
+
+        ActivateAbility();
+        return true;
+    }
+
+    protected abstract void ActivateAbility();
+
+    public virtual bool CanCast()
+    {
+        return !_bIsOnCooldown && OwnerASC.Mana >= manaCost;
+    }
 
     public virtual void Init(AbilitySystemComponent abilitySystemComponent)
     {
@@ -47,10 +63,10 @@ public abstract class Ability : ScriptableObject
         if (!OwnerASC)
             return false;
 
-        if (!OwnerASC.TryConsumeMana(manaCost))
+        if (_bIsOnCooldown)
             return false;
 
-        if (_bIsOnCooldown)
+        if (!OwnerASC.TryConsumeMana(manaCost))
             return false;
 
         StartCooldown();

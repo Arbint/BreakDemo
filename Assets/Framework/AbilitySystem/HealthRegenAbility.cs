@@ -14,7 +14,12 @@ public class HealthRegenAbility : Ability
         _ownerHealthComponent = abilitySystemComponent.GetComponent<HealthComponent>();
     }
 
-    public override void ActivateAbility()
+    public override bool CanCast()
+    {
+        return base.CanCast() && _ownerHealthComponent.GetHealth() != _ownerHealthComponent.GetMaxHealth();
+    }
+
+    protected override void ActivateAbility()
     {
         if (!CommitAbility())
             return;

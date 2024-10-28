@@ -37,7 +37,7 @@ public class AbilityWidget : MonoBehaviour
 
     internal void CastAbility()
     {
-        _ability.ActivateAbility();
+        _ability.TryActivateAbility();
     }
 
     internal void Init(Ability newAbility)
