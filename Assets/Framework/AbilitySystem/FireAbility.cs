@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class FireAbility : MonoBehaviour
+public class FireAbility : Ability
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float damageAmt = 50f;
+    [SerializeField] float damageDuration = 3f;
 
-    // Update is called once per frame
-    void Update()
+    protected override void ActivateAbility()
     {
-        
+        if (!CommitAbility())
+            return;
+
+
     }
 }
