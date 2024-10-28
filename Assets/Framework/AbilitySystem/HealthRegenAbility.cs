@@ -12,6 +12,7 @@ public class HealthRegenAbility : Ability
     {
         base.Init(abilitySystemComponent);
         _ownerHealthComponent = abilitySystemComponent.GetComponent<HealthComponent>();
+        _ownerHealthComponent.OnHealthChanged += (_,_,_,_) => BrocastCanCast();
     }
 
     public override bool CanCast()

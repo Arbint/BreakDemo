@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class Ability : ScriptableObject
 {
     public delegate void OnAbilityCooldownStaredDelegate(float cooldownDuration);
+    public delegate void OnAbilityCanCastChangedDelegate(bool bCanCast);
+    public event OnAbilityCanCastChangedDelegate OnAbilityCanCastChanged;
+
     [SerializeField] float cooldownDuration = 3f;
     [SerializeField] float manaCost = 10f;
     [SerializeField] Sprite abilityIcon;
@@ -16,6 +19,11 @@ public abstract class Ability : ScriptableObject
     {
         get;
         private set;
+    }
+
+    protected void BrocastCanCast()
+    {
+        OnAbilityCanCastChanged?.Invoke(CanCast());
     }
 
     public Sprite GetAbilityIcon()
@@ -44,11 +52,13 @@ public abstract class Ability : ScriptableObject
     public virtual void Init(AbilitySystemComponent abilitySystemComponent)
     {
         OwnerASC = abilitySystemComponent; 
+        OwnerASC.onManaUpdated += (mana, delta, maxMana) => BrocastCanCast();
     }
     private void StartCooldown()
     {
         OnAbilityCooldownStared?.Invoke(cooldownDuration); 
-        OwnerASC.StartCoroutine(CooldownCoroutine()); 
+        OwnerASC.StartCoroutine(CooldownCoroutine());
+        BrocastCanCast();
     }
 
     IEnumerator CooldownCoroutine()
@@ -56,6 +66,7 @@ public abstract class Ability : ScriptableObject
         _bIsOnCooldown = true;
         yield return new WaitForSeconds(cooldownDuration);
         _bIsOnCooldown = false;
+        BrocastCanCast();
     }
 
     protected bool CommitAbility()

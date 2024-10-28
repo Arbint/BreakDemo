@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,10 @@ public class AbilityWidget : MonoBehaviour
     [SerializeField] RectTransform rootPanel;
     [SerializeField] Image iconImage;
     [SerializeField] Image cooldownImage;
+
+    [SerializeField] Color canCastColor = Color.white;
+    [SerializeField] Color cannotCastColor = Color.grey;
+
     [SerializeField] float cooldownUpdateInterval = 0.05f;
 
     [SerializeField] float scaledSize = 1.5f;
@@ -44,9 +49,18 @@ public class AbilityWidget : MonoBehaviour
     {
         _ability = newAbility;
         if(_ability)
+        {
             _ability.OnAbilityCooldownStared += StartCooldown;
+            _ability.OnAbilityCanCastChanged += CanCastStateChanged;
+        }
 
         iconImage.sprite = _ability.GetAbilityIcon();
+        CanCastStateChanged(_ability.CanCast());
+    }
+
+    private void CanCastStateChanged(bool bCanCast)
+    {
+        iconImage.color = bCanCast ? canCastColor : cannotCastColor;
     }
 
     private void StartCooldown(float cooldownDuration)
