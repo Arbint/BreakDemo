@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
     [SerializeField] private ViewCamera viewCameraPrefab;
     [SerializeField] private float animTurnLerpScale = 5f;
     [SerializeField] private int teamID = 0;
+
     private GameplayWidget _gameplayWidget;
     
     private CharacterController _characterController;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
         _movementComponent = GetComponent<MovementComponent>();
     }
 
-    private void StartDeathSequence()
+    private void StartDeathSequence(GameObject killer)
     {
         Debug.Log($"player dead");
         _animator.SetTrigger("Dead");
@@ -108,8 +109,11 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
             angleDelta = Vector3.SignedAngle(transform.forward, prevDir, Vector3.up);
         }
 
-        _animTurnSpeed = Mathf.Lerp(_animTurnSpeed, angleDelta/Time.deltaTime, Time.deltaTime * animTurnLerpScale);
-        _animator.SetFloat(animTurnId, _animTurnSpeed);
+        if (Time.deltaTime > 0)
+        {
+            _animTurnSpeed = Mathf.Lerp(_animTurnSpeed, angleDelta/Time.deltaTime, Time.deltaTime * animTurnLerpScale);
+            _animator.SetFloat(animTurnId, _animTurnSpeed);
+        }
 
         float animFwdAmt = Vector3.Dot(moveDir, transform.forward);
         float animRightAmt = Vector3.Dot(moveDir, transform.right);

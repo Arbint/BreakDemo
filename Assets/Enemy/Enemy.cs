@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface, ISpawnIn
         }
     }
 
-    private void StartDeath()
+    private void StartDeath(GameObject killer)
     {
         _animator.SetTrigger(DeadId);
     }

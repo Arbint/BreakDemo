@@ -4,9 +4,10 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     public delegate void OnHealthChangedDelegate(float newHealth, float delta, float maxHealth, GameObject instigator);
+    public delegate void OnDeadDelegate(GameObject killer);
     public event OnHealthChangedDelegate OnHealthChanged;
     public event OnHealthChangedDelegate OnTakenDamage;
-    public event Action OnDead;
+    public event OnDeadDelegate OnDead;
     
    [SerializeField] private float maxHealth = 100;
    private float _health;
@@ -40,7 +41,7 @@ public class HealthComponent : MonoBehaviour
        
        if (_health <= 0)
        {
-          OnDead?.Invoke(); 
+          OnDead?.Invoke(instigator); 
        }
    }
 }

@@ -19,6 +19,6 @@ MonoBehaviour:
   damageDuration: 3
   damageRadius: 20
   damageScanDuration: 1
-  ScanVFX: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
+  ScanVFX: {fileID: 7535603760271832399, guid: dea02341bfbc5db42a8933b66ef76f20, type: 3}
   BurnVFX: {fileID: 6294508013172393196, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
   scanerPrefab: {fileID: -2402010352336512608, guid: b73173aa8ffde9b409b48ce6753af41d, type: 3}

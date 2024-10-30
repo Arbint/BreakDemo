@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 565376369296725711}
   - component: {fileID: 4480450716717067487}
   - component: {fileID: 5147099049436806218}
+  - component: {fileID: -8018755409807703723}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -300,6 +301,22 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 6002617223673246343}
+--- !u!114 &-8018755409807703723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002617223673246343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914deaf18cdd44f4888a63177f1aee2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewards:
+  - {fileID: 11400000, guid: 10f6cefe309c12643b541ff52600812c, type: 2}
+  - {fileID: 11400000, guid: 8ddfc36443c02cd48949bbdd49f8505b, type: 2}
+  - {fileID: 11400000, guid: 79c398145276e664a9bca8079a78265b, type: 2}
 --- !u!1 &8910188923000649924
 GameObject:
   m_ObjectHideFlags: 0

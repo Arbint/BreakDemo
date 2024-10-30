@@ -110,6 +110,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7408970893627092231, guid: c3ec3795d8ed9a248989d0921065cf22, type: 3}
+      propertyPath: rewards.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7408970893627092231, guid: c3ec3795d8ed9a248989d0921065cf22, type: 3}
+      propertyPath: 'rewards.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 79c398145276e664a9bca8079a78265b, type: 2}
     - target: {fileID: 333906732661514324, guid: c3ec3795d8ed9a248989d0921065cf22, type: 3}
       propertyPath: 'managedReferences[3353280890211926883]'
       value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
