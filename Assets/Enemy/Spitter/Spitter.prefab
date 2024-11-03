@@ -115,6 +115,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7408970893627092231, guid: c3ec3795d8ed9a248989d0921065cf22, type: 3}
+      propertyPath: 'rewards.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 10f6cefe309c12643b541ff52600812c, type: 2}
+    - target: {fileID: -7408970893627092231, guid: c3ec3795d8ed9a248989d0921065cf22, type: 3}
       propertyPath: 'rewards.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 79c398145276e664a9bca8079a78265b, type: 2}
