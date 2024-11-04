@@ -14,6 +14,9 @@ public class HitSense : Sense
 
     private void HandleDamageEvent(float newHealth, float delta, float maxHealth, GameObject instigator)
     {
+        if (!instigator)
+            return;
+
         Stimuli instigatorStimuli = instigator.GetComponent<Stimuli>();
         if(instigatorStimuli)
             HandleSensibleStimuli(instigatorStimuli); 

@@ -15,5 +15,6 @@ MonoBehaviour:
   cooldownDuration: 3
   manaCost: 10
   abilityIcon: {fileID: 21300000, guid: d17d84a19ff3a594780b8c064765e182, type: 3}
+  saveableId: a008d543-0f38-4274-8843-50c04a711fe1
   boostAmt: 20
   boostDuration: 3

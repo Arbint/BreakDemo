@@ -248,5 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamID: 1
+  saveableId: dd97a110-f512-4632-a7e3-1a48ee567719
   projectilePrefab: {fileID: 5577962892428234788, guid: 0a546add572ddc444a9de9a958c5e7f9, type: 3}
   launchTransform: {fileID: 3613067816329085433}

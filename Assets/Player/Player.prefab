@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4427356183857483222}
   - component: {fileID: 9222322105716332314}
   - component: {fileID: 8049887745855101084}
+  - component: {fileID: 4428723776564209825}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -60,6 +61,7 @@ MonoBehaviour:
   viewCameraPrefab: {fileID: 5988155114967676485, guid: 806b89f3acc87bb4cbb0dced391ea522, type: 3}
   animTurnLerpScale: 5
   teamID: 0
+  saveableId: 47716ae0-b4d2-4f9d-916e-ac2807d381e8
 --- !u!143 &2582581203898814392
 CharacterController:
   m_ObjectHideFlags: 0
@@ -232,6 +234,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 325d5d76992f4674eb2e59ac6bb194e8, type: 2}
   - {fileID: 11400000, guid: 2233fcbd3bb7e684a8ea6bc81921cb5a, type: 2}
   - {fileID: 11400000, guid: 27091850db989c94b9c490d814e62154, type: 2}
+--- !u!114 &4428723776564209825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055278416058777573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cd71fd5092f6947b8e004261e7100a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3116321188908237533
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,3 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ef2328d5f42440acf6e5eef464f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveableScriptableObjects:
+  - {fileID: 11400000, guid: 2233fcbd3bb7e684a8ea6bc81921cb5a, type: 2}
+  - {fileID: 11400000, guid: 325d5d76992f4674eb2e59ac6bb194e8, type: 2}
+  - {fileID: 11400000, guid: 27091850db989c94b9c490d814e62154, type: 2}
+  saveablePrefabs:
+  - {fileID: 4234108072761097223, guid: a2197d6a0928f284cbab6857ec7c408e, type: 3}
+  - {fileID: 7010907943343454417, guid: 74d9d3362c1b59349a47f915de004a29, type: 3}
+  - {fileID: 8085007706639015614, guid: f4ea83ba0eda49c4d983bdec378ba5f9, type: 3}
+  - {fileID: 6055278416058777573, guid: 55f468eed2a3e244bbdfa511978b6814, type: 3}
+  - {fileID: 7635007942146854222, guid: aa8a26b8388f8324880d5a5ef063f7ec, type: 3}
+  - {fileID: 6002617223673246343, guid: 7da6d5cba80894be88924103e194eebd, type: 3}

@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4480450716717067487}
   - component: {fileID: 5147099049436806218}
   - component: {fileID: -8018755409807703723}
+  - component: {fileID: -4728259574621265495}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamID: 1
+  saveableId: f0ed4705-803b-48ea-963a-89048e67b9f0
   _particleSystemSpec:
   - particleSystem: {fileID: 5515065002404772068, guid: b5c8ca7ed10b61e499cce8ec3b6e2e4c, type: 3}
     size: 2
@@ -273,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 4234108072761097223, guid: a2197d6a0928f284cbab6857ec7c408e, type: 3}
-  - {fileID: 100004, guid: 3a3cea986292c2445a02c973a48c7e8b, type: 3}
+  - {fileID: 7635007942146854222, guid: aa8a26b8388f8324880d5a5ef063f7ec, type: 3}
   spawnTransform: {fileID: 8238491095989371456}
 --- !u!114 &5147099049436806218
 MonoBehaviour:
@@ -317,6 +319,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10f6cefe309c12643b541ff52600812c, type: 2}
   - {fileID: 11400000, guid: 8ddfc36443c02cd48949bbdd49f8505b, type: 2}
   - {fileID: 11400000, guid: 79c398145276e664a9bca8079a78265b, type: 2}
+--- !u!114 &-4728259574621265495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002617223673246343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09a548d6d23cfa4e8681a043d63551a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8910188923000649924
 GameObject:
   m_ObjectHideFlags: 0

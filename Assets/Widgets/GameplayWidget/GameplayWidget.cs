@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameplayWidget : Widget
 {
@@ -8,6 +8,8 @@ public class GameplayWidget : Widget
     [SerializeField] private JoyStick aimStick;
     [SerializeField] private CanvasGroup gameplayControlCanvasGroup;
     [SerializeField] private CanvasGroup shopGroup;
+    [SerializeField] private Button saveBtn;
+    [SerializeField] private Button loadBtn;
 
     private List<CanvasGroup> _widgetGroups = new List<CanvasGroup>();
 
@@ -38,6 +40,9 @@ public class GameplayWidget : Widget
         }
 
         SetCurrentActiveGroup(gameplayControlCanvasGroup);
+
+        saveBtn.onClick.AddListener(() => SaveSystem.SaveGame());
+        loadBtn.onClick.AddListener(() => SaveSystem.LoadGame());
     }
 
     private void SetCurrentActiveGroup(CanvasGroup canvasGroup)

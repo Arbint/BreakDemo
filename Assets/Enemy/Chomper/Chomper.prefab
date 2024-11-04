@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamID: 1
+  saveableId: 0db4e534-2e6d-480c-99d4-18a75012cbd5
 --- !u!65 &8659907587780580223
 BoxCollider:
   m_ObjectHideFlags: 0
