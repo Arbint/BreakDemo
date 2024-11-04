@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Ability : ScriptableObject
+public abstract class Ability : ScriptableObject, ISaveable
 {
     public delegate void OnAbilityCooldownStaredDelegate(float cooldownDuration);
     public delegate void OnAbilityCanCastChangedDelegate(bool bCanCast);
@@ -82,5 +82,16 @@ public abstract class Ability : ScriptableObject
 
         StartCooldown();
         return true;
+    }
+
+    [SerializeField] string saveableId;
+    public string GetSaveableId()
+    {
+        return saveableId;
+    }
+
+    public void GenerateSaveableId()
+    {
+        saveableId = Guid.NewGuid().ToString();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(Animator))]
-public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface, ISpawnInterface
+public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface, ISpawnInterface, ISaveable
 {
     [SerializeField] private int TeamID = 1;
     private HealthComponent _healthComponent;
@@ -92,5 +92,16 @@ public class Enemy : MonoBehaviour, IBehaviorInterface, ITeamInterface, ISpawnIn
             return;
 
         _perceptionComponent.AssignPerceivedStimuli(stimuli);
+    }
+
+    [SerializeField] string saveableId;
+    public string GetSaveableId()
+    {
+        return saveableId;
+    }
+
+    public void GenerateSaveableId()
+    {
+        saveableId = Guid.NewGuid().ToString();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SocketManager))]
 [RequireComponent(typeof(InventoryComponent))]
 [RequireComponent(typeof(HealthComponent))]
-public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
+public class Player : MonoBehaviour, ITeamInterface, ICameraInterface, ISaveable
 {
     [SerializeField] private GameplayWidget gameplayWidgetPrefab;
     [SerializeField] private float bodyTurnSpeed = 10f;
@@ -125,5 +125,17 @@ public class Player : MonoBehaviour, ITeamInterface, ICameraInterface
     public Camera GetCamera()
     {
         return _viewCamera.GetViewCamera();
+    }
+
+    [SerializeField] string saveableId;
+
+    public string GetSaveableId()
+    {
+        return saveableId;
+    }
+
+    public void GenerateSaveableId()
+    {
+        saveableId = Guid.NewGuid().ToString();
     }
 }

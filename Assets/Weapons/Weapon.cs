@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour, ISocketInterface
+public abstract class Weapon : MonoBehaviour, ISocketInterface, ISaveable
 {
     [SerializeField] string attachSocketName;
     [SerializeField] AnimatorOverrideController overrideController;
@@ -49,5 +50,16 @@ public abstract class Weapon : MonoBehaviour, ISocketInterface
     }
 
     public abstract void Attack();
+
+    [SerializeField] string saveableId;
+    public string GetSaveableId()
+    {
+        return saveableId;
+    }
+
+    public void GenerateSaveableId()
+    {
+        saveableId = Guid.NewGuid().ToString();
+    }
 }
 
