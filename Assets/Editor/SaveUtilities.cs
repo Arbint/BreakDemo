@@ -14,6 +14,21 @@ public class SaveUtilities : MonoBehaviour
             if(saveable != null)
             {
                 saveable.GenerateSaveableId();
+                continue;
+            }
+
+            if (!path.Contains(".prefab"))
+                continue;
+
+            GameObject gameObject = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if(gameObject != null)
+            {
+                saveable = gameObject.GetComponent<ISaveable>();
+                if(saveable != null)
+                {
+                    saveable.GenerateSaveableId();
+                    continue;
+                }
             }
         }
     }
